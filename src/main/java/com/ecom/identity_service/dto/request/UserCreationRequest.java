@@ -1,10 +1,15 @@
-package com.ecom.identity_service.dto;
+package com.ecom.identity_service.dto.request;
+
+import com.ecom.identity_service.exception.ErrorCode;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class UserCreationRequest {
+    @Size(min = 3, message = "USERNAME_INVALID")
     private String username;
 
+    @Size(min = 8, message = "INVALID_PASSWORD")
     private String password;
 
     private String firstName;

@@ -2,7 +2,8 @@ package com.ecom.identity_service.controller;
 
 import com.ecom.identity_service.dto.request.UserCreationRequest;
 import com.ecom.identity_service.dto.request.UserUpdationRequest;
-import com.ecom.identity_service.dto.response.ApiResponse;
+import com.ecom.identity_service.dto.request.ApiResponse;
+import com.ecom.identity_service.dto.response.UserResponse;
 import com.ecom.identity_service.entity.User;
 import com.ecom.identity_service.service.UserService;
 import jakarta.validation.Valid;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public User getUser(@PathVariable("userId") String userId) {
+    public UserResponse getUser(@PathVariable("userId") String userId) {
         return this.userService.getUserById(userId);
     }
 
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public User updateUser(@PathVariable("userId") String userId,
+    public UserResponse updateUser(@PathVariable("userId") String userId,
                            @RequestBody UserUpdationRequest request) {
         return this.userService.updateUser(userId, request);
     }

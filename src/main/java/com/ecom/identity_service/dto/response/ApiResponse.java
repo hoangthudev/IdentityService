@@ -17,13 +17,14 @@ public class ApiResponse<T> {
         this.code = code;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public T getResult() {
         return result;
